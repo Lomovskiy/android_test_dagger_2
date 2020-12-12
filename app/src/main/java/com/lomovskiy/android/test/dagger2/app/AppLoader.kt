@@ -1,7 +1,6 @@
-package com.lomovskiy.android.test.dagger2
+package com.lomovskiy.android.test.dagger2.app
 
 import android.app.Application
-import com.lomovskiy.android.test.dagger2.di.AppComponent
 import com.lomovskiy.android.test.dagger2.di.DaggerAppComponent
 
 class AppLoader : Application() {

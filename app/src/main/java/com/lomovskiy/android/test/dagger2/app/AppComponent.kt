@@ -1,6 +1,6 @@
-package com.lomovskiy.android.test.dagger2.di
+package com.lomovskiy.android.test.dagger2.app
 
-import com.lomovskiy.android.test.dagger2.MainActivity
+import com.lomovskiy.android.test.dagger2.di.ApplicationScope
 import dagger.Component
 
 @ApplicationScope
