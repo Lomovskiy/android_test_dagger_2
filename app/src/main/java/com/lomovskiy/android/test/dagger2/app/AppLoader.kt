@@ -1,9 +1,10 @@
 package com.lomovskiy.android.test.dagger2.app
 
 import android.app.Application
-import com.lomovskiy.android.test.dagger2.di.DaggerAppComponent
+import com.lomovskiy.android.test.dagger2.feature.login.di.FeatureLoginComponent
+import com.lomovskiy.android.test.dagger2.feature.main.di.FeatureMainComponent
 
-class AppLoader : Application() {
+class AppLoader : Application(), FeatureMainComponent.Provider, FeatureLoginComponent.Provider {
 
     internal lateinit var appComponent: AppComponent
 
@@ -12,6 +13,14 @@ class AppLoader : Application() {
         appComponent = DaggerAppComponent
             .builder()
             .build()
+    }
+
+    override fun provideFeatureMainComponent(): FeatureMainComponent {
+        return appComponent.featureMainComponent().create()
+    }
+
+    override fun provideFeatureLoginComponent(): FeatureLoginComponent {
+        return appComponent.featureLoginComponent().create()
     }
 
 }
